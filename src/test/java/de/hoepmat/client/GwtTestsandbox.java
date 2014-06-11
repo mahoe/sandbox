@@ -10,10 +10,10 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
  * GWT JUnit <b>integration</b> tests must extend GWTTestCase.
  * Using <code>"GwtTest*"</code> naming pattern exclude them from running with
  * surefire during the test phase.
- * 
- * If you run the tests using the Maven command line, you will have to 
- * navigate with your browser to a specific url given by Maven. 
- * See http://mojo.codehaus.org/gwt-maven-plugin/user-guide/testing.html 
+ *
+ * If you run the tests using the Maven command line, you will have to
+ * navigate with your browser to a specific url given by Maven.
+ * See http://mojo.codehaus.org/gwt-maven-plugin/user-guide/testing.html
  * for details.
  */
 public class GwtTestsandbox extends GWTTestCase {
@@ -45,7 +45,7 @@ public class GwtTestsandbox extends GWTTestCase {
     // Create the service that we will test.
     GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
     ServiceDefTarget target = (ServiceDefTarget) greetingService;
-    target.setServiceEntryPoint(GWT.getModuleBaseURL() + "sandbox/greet");
+    target.setServiceEntryPoint(GWT.getModuleBaseURL() + "Sandbox/greet");
 
     // Since RPC calls are asynchronous, we will need to wait for a response
     // after this test method returns. This line tells the test runner to wait

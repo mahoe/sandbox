@@ -17,7 +17,7 @@
   <!-- Other module inherits                                      -->
 
   <!-- Specify the app entry point class.                         -->
-  <entry-point class='de.hoepmat.client.sandbox' />
+  <entry-point class='de.hoepmat.client.Sandbox' />
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client' />

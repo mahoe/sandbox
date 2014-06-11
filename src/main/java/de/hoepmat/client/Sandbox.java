@@ -24,7 +24,7 @@ import de.hoepmat.shared.FieldVerifier;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class sandbox implements EntryPoint {
+public class Sandbox implements EntryPoint {
   /**
    * The message displayed to the user when the server cannot be reached or
    * returns an error.
