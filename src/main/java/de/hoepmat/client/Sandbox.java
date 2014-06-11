@@ -64,7 +64,7 @@ public class Sandbox implements EntryPoint {
 
       final long currentTimeMillis = System.currentTimeMillis();
       GWT.log("START @ " + currentTimeMillis);
-      long result = 0;
+      long result = 1;
 
       for (int i = 0; i < 100000; i++)
       {
