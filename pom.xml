@@ -13,10 +13,10 @@
   <name>GWT Maven Archetype</name>
 
   <properties>
-    <!-- Convenience property to set the GWT version -->
     <gwtVersion>2.6.1</gwtVersion>
-    <!-- GWT needs at least java 1.5 -->
-    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+      <gxtVersion>3.1.0</gxtVersion>
+
+      <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -33,7 +33,12 @@
       <version>${gwtVersion}</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
+      <dependency>
+          <groupId>com.sencha.gxt</groupId>
+          <artifactId>gxt-chart</artifactId>
+          <version>${gxtVersion}</version>
+      </dependency>
+      <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.7</version>
@@ -75,9 +80,9 @@
             </goals>
           </execution>
         </executions>
-        <!-- Plugin configuration. There are many available options, see 
-          gwt-maven-plugin documentation at codehaus.org -->
-        <configuration>
+          <!-- Plugin configuration. There are many available options, see
+            gwt-maven-plugin documentation at codehaus.org -->
+          <configuration>
           <runTarget>sandbox.html</runTarget>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
           <i18nMessagesBundle>de.hoepmat.client.Messages</i18nMessagesBundle>
