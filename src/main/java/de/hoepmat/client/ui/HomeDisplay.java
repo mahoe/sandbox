@@ -70,7 +70,11 @@ public class HomeDisplay extends ContentPanel {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(correct ? "RICHTIG" : "FALSCH");
+            if (correct) {
+                sb.append("RICHTIG");
+            } else {
+                sb.append("FALSCH (").append(value).append(")");
+            }
             sb.append(" in der Zeit:");
             sb.append(consumedTime);
             return sb.toString();
