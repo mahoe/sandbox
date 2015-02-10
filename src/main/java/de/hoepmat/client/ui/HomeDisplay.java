@@ -1,5 +1,8 @@
 package de.hoepmat.client.ui;
 
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
@@ -10,6 +13,7 @@ import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.inject.Inject;
+
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
@@ -18,9 +22,6 @@ import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import de.hoepmat.client.logic.Aufgabe;
-
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 
 /**
  * Created by hoepmat on 6/25/14.
@@ -32,6 +33,7 @@ public class HomeDisplay extends ContentPanel {
     private LinkedHashMap<Aufgabe, Result> aufgaben;
     private Iterator<Aufgabe> iterator;
     private long startTime;
+    private TextButton cmdListResults;
 
     interface DisplayTemplate extends XTemplates {
 
@@ -87,9 +89,22 @@ public class HomeDisplay extends ContentPanel {
     public HomeDisplay(DisplayTemplate template) {
         this.template = template;
         createUi();
+        bind();
     }
 
-    private void createUi() {
+    private void bind()
+    {
+        cmdListResults.addSelectHandler(new SelectEvent.SelectHandler()
+        {
+            public void onSelect(SelectEvent event)
+            {
+
+            }
+        });
+    }
+
+    private void createUi()
+    {
         this.setHeadingText("Rechne!");
         this.setSize("800px", "600px");
 
@@ -98,7 +113,6 @@ public class HomeDisplay extends ContentPanel {
         aufgabenCounter = 0;
 
         stelleAufgabe();
-
     }
 
     private void stelleAufgabe() {
@@ -190,5 +204,8 @@ public class HomeDisplay extends ContentPanel {
         p.setWidget(table);
         p.center();
         p.show();
+
+        cmdListResults = new TextButton("Alle Ergebnisse...");
+        this.addButton(cmdListResults);
     }
 }
