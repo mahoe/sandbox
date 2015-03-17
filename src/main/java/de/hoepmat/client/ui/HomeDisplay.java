@@ -8,6 +8,8 @@ import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.event.logical.shared.AttachEvent;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
@@ -18,9 +20,12 @@ import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.AbstractHtmlLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
+import com.sencha.gxt.widget.core.client.form.FileUploadField;
 import com.sencha.gxt.widget.core.client.form.TextField;
+import com.sencha.gxt.widget.core.client.info.Info;
 import de.hoepmat.client.logic.Aufgabe;
 
 /**
@@ -112,6 +117,20 @@ public class HomeDisplay extends ContentPanel {
         iterator = aufgaben.keySet().iterator();
         aufgabenCounter = 0;
 
+
+        BorderLayoutContainer blc = new BorderLayoutContainer();
+        FileUploadField fileInput = new FileUploadField();
+        fileInput.addValueChangeHandler(new ValueChangeHandler<String>()
+        {
+            public void onValueChange(ValueChangeEvent<String> event)
+            {
+                Info.display("Value changed!", event.getValue());
+            }
+        });
+        blc.setCenterWidget(fileInput);
+        blc.setWidth(200);
+        setWidget(blc);
+
         stelleAufgabe();
     }
 
@@ -200,7 +219,8 @@ public class HomeDisplay extends ContentPanel {
         table.setWidget(row++, 0, new Label("Richtig: " + counterTrue));
         table.setWidget(row++, 0, new Label("Falsch: " + counterFalse));
         table.setWidget(row++, 0, new Label("Zeit in Summe: " + timeSum));
-        table.setWidget(row, 0, new Label("Zeit je Aufgabe: " + (timeSum / 10)));
+        table.setWidget(row++, 0, new Label("Zeit je Aufgabe: " + (timeSum / 10)));
+
         p.setWidget(table);
         p.center();
         p.show();

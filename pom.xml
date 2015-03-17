@@ -13,8 +13,8 @@
   <name>GWT Maven Archetype</name>
 
   <properties>
-    <gwtVersion>2.6.1</gwtVersion>
-      <gxtVersion>3.1.0</gxtVersion>
+    <gwtVersion>2.7.0</gwtVersion>
+      <gxtVersion>3.1.1</gxtVersion>
 
       <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,7 +74,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>2.6.1</version>
+        <version>${gwtVersion}</version>
         <executions>
           <execution>
             <goals>
