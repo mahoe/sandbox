@@ -93,6 +93,21 @@ public class Aufgabe {
         a.opA = getRandomNumber(min, max);
         a.opB = getRandomNumber(min, max);
         a.op = operators[getRandomNumber(0, operators.length - 1)];
+
+        // check div by zero
+        if(a.opB==0 && a.op.equals(OPERATOR.DIV)){
+            a = get(min,max,operators);
+        }
+
+        // check div without rest
+        if(a.op.equals(OPERATOR.DIV) && a.opA % a.opB != 0){
+            a = get(min,max,operators);
+        }
+
+        // check neg. result
+        if(a.op.equals(OPERATOR.MINUS) && a.opA < a.opB){
+            a = get(min,max,operators);
+        }
         return a;
     }
 

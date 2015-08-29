@@ -135,11 +135,11 @@ public class HomeDisplay extends ContentPanel {
     }
 
     private void stelleAufgabe() {
-        if (aufgabenCounter < 10) {
+        if (aufgabenCounter < 25) {
             aufgabenCounter++;
 
             final PopupPanel p = new PopupPanel(true, true);
-            final Aufgabe aufgabe = Aufgabe.get(0, 9, Aufgabe.OPERATOR.PLUS, Aufgabe.OPERATOR.MINUS);
+            final Aufgabe aufgabe = Aufgabe.get(0, 10, Aufgabe.OPERATOR.PLUS, Aufgabe.OPERATOR.MINUS, Aufgabe.OPERATOR.MUL, Aufgabe.OPERATOR.DIV);
 
             String operandLeft = aufgabe.getOpA();
             String operandRight = aufgabe.getOpB();
