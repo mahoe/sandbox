@@ -33,8 +33,7 @@ import de.hoepmat.client.logic.Aufgabe;
  */
 public class HomeDisplay extends ContentPanel {
 
-    private static final int MAX_COUNT = 25;
-	private TextField textField;
+    private TextField textField;
     private int aufgabenCounter;
     private LinkedHashMap<Aufgabe, Result> aufgaben;
     private Iterator<Aufgabe> iterator;
@@ -136,7 +135,7 @@ public class HomeDisplay extends ContentPanel {
     }
 
     private void stelleAufgabe() {
-        if (aufgabenCounter < MAX_COUNT) {
+        if (aufgabenCounter < 25) {
             aufgabenCounter++;
 
             final PopupPanel p = new PopupPanel(true, true);
@@ -170,7 +169,9 @@ public class HomeDisplay extends ContentPanel {
                 }
             });
             p.setWidget(con);
+            p.center();
             p.show();
+            textField.focus();
             startTime = System.currentTimeMillis();
 
         } else {
@@ -220,7 +221,7 @@ public class HomeDisplay extends ContentPanel {
         table.setWidget(row++, 0, new Label("Richtig: " + counterTrue));
         table.setWidget(row++, 0, new Label("Falsch: " + counterFalse));
         table.setWidget(row++, 0, new Label("Zeit in Summe: " + timeSum));
-        table.setWidget(row++, 0, new Label("Zeit je Aufgabe: " + (timeSum / MAX_COUNT)));
+        table.setWidget(row++, 0, new Label("Zeit je Aufgabe: " + (timeSum / aufgaben.size())));
 
         p.setWidget(table);
         p.center();

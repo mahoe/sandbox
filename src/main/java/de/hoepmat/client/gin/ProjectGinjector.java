@@ -3,6 +3,7 @@ package de.hoepmat.client.gin;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
 
+import de.hoepmat.client.presenter.AppPresenter;
 import de.hoepmat.client.ui.HomeDisplay;
 
 /**
@@ -12,4 +13,5 @@ import de.hoepmat.client.ui.HomeDisplay;
 public interface ProjectGinjector extends Ginjector
 {
     HomeDisplay getHomeDisplay();
+    AppPresenter getAppPresenter();
 }
