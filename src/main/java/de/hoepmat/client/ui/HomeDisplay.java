@@ -82,7 +82,7 @@ public class HomeDisplay extends ContentPanel {
             } else {
                 sb.append("FALSCH (").append(value).append(")");
             }
-            sb.append(" in der Zeit:");
+            sb.append(" in einer Zeit von:");
             sb.append(consumedTime);
             return sb.toString();
         }
